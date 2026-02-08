@@ -51,7 +51,6 @@ func WithDescribe(root *cobra.Command, opts *DescribeOptions) {
 	printAndExit := func() {
 		schema := Describe(root, opts)
 		enc := json.NewEncoder(os.Stdout)
-		enc.SetIndent("", "  ")
 		if err := enc.Encode(schema); err != nil {
 			fmt.Fprintf(os.Stderr, "Error encoding schema: %v\n", err)
 			os.Exit(1)
